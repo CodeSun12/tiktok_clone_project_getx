@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:tiktok_clone_project_getx/constants.dart';
+import 'package:tiktok_clone_project_getx/views/screens/auth/signup_screen.dart';
 import 'package:tiktok_clone_project_getx/views/widgets/text_input_field.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -43,12 +46,13 @@ class LoginScreen extends StatelessWidget {
                 myController: passwordController,
                 labelText: "Password",
                 icon: CupertinoIcons.lock_shield_fill,
+                isObscure: true,
               ),
             ),
             const SizedBox(height: 30,),
             InkWell(
               onTap: (){
-                print("Login User");
+                authController.loginUser(emailController.text, passwordController.text);
               },
               child: Container(
                 width: MediaQuery.of(context).size.width - 40,
